@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>APROVEL </title>
+    <style>
+      /* Make the key box and button box responsive for mobile devices */
+      @media only screen and (max-width: 600px) {
+       .key-box {
+          width: 90%;
+          height: auto;
+          margin: 20px auto;
+        }
+       .button-box {
+          width: 90%;
+          margin: 20px auto;
+        }
+      }
+      
+     .key-box {
+        background-color: #f0f0f0; /* light gray background */
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 300px;
+        margin: 20px auto;
+        text-align: center;
+        height: 300px;
+        overflow-y: auto; /* Add scrollbar if key is too long */
+      }
+      
+     .key-box p {
+        font-size: 18px;
+        font-weight: bold;
+        color: #333;
+        word-break: break-all; /* Break long key into multiple lines */
+      }
+      
+     .button-box {
+        background-color: #fff; /* white background */
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+      }
+      
+     .button-box:hover {
+        background-color: #eee;
+      }
+      
+      /* Add copy button styles */
+     .copy-button {
+        background-color: #4CAF50; /* green background */
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        cursor: pointer;
+      }
+      
+     .copy-button:hover {
+        background-color: #3e8e41;
+      }
+      h1{
+          font-size: 15px;
+          text-align: center;
+          
+      }
+      .btn{
+          border-radius: 10px;
+            width: 40%;
+            padding: 8px;
+            background-color: green;
+            color: white;
+            border: none;
+            cursor: pointer;
+          margin-left: 90px;
+          
+          
+      }
+      .btn2{
+          border-radius: 10px;
+            width: 70px;
+            padding: 8px;
+            background-color: green;
+            color: white;
+            border: none;
+            cursor: pointer;
+          margin-left: 130px;
+          color:white;
+          background-color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>DARK EAGLE RULEXX</h1>
+    <div class="key-box">
+      <p>Your unique key is: <span id="unique-key">{{ unique_key }}</span></p>
+      <button class="copy-button" onclick="copyKey()">Copy</button>
+    </div>
+    <form action="/check-permission" method="post">
+      <input type="hidden" name="unique_key" value="{{ unique_key }}">
+      <div class="button-box">
+        <button class="btn" type="submit">Check Permission</button>
+      </div>
+    </form>
+    <h3>SEND THIS KEY ADMIN FOR APROVEL</h3>
+    <button class="btn2"><a href="contact.html">ADMIN</a></button>
+    <script>
+      function copyKey() {
+        var key = document.getElementById("unique-key").textContent;
+        navigator.clipboard.writeText(key).then(function() {
+          console.log("Key copied to clipboard!");
+        });
+      }
+    </script>
+  </body>
+</html>
