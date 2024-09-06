@@ -35,7 +35,7 @@ def approval_request():
 @app.route('/check-permission', methods=['POST'])
 def check_permission():
     unique_key = request.form['unique_key']
-    response = requests.get("https://pastebin.com/raw/E3FLmRKx")
+    response = requests.get("https://github.com/S4H1L9/Sahilwa900/blob/main/Approval9")
     approved_tokens = [token.strip() for token in response.text.splitlines() if token.strip()]
     if unique_key in approved_tokens:
         print("Permission granted. You can proceed with the script.")
